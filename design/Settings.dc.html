@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #f4f4f1; color: #111111; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; font-size: 25px; line-height: 1.35; }
+    a { color: #111111; } a:hover { color: #5b5b5b; }
+
+    @keyframes ef-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    @keyframes ef-pulse { 0% { box-shadow: 0 0 0 0 rgba(214,40,40,0.55); } 70% { box-shadow: 0 0 0 16px rgba(214,40,40,0); } 100% { box-shadow: 0 0 0 0 rgba(214,40,40,0); } }
+    @keyframes ef-tick { 0%, 100% { color: #d62828; } 50% { color: #111111; } }
+    @keyframes ef-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+    @keyframes ef-fill { 0% { width: 0%; } 80% { width: 100%; } 100% { width: 100%; } }
+    @keyframes ef-bob { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+    @keyframes ef-pop { 0% { transform: scale(0.96); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    @keyframes ef-glow { 0%, 100% { background-color: #e5f5ea; } 50% { background-color: #d2efdb; } }
+    .reveal { animation: ef-reveal 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .pulse { animation: ef-pulse 1.8s ease-out infinite; }
+    .tick { animation: ef-tick 2.4s ease-in-out infinite; }
+    .draw { stroke-dasharray: 400; animation: ef-draw 1.6s ease-out 0.4s both; }
+    .fill { animation: ef-fill 2.2s ease-in-out 0.8s infinite; }
+    .bob { animation: ef-bob 2.4s ease-in-out infinite; }
+    .pop { animation: ef-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
+    .glow { animation: ef-glow 2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .reveal, .pulse, .tick, .draw, .fill, .bob, .pop, .glow { animation: none; } }
+  </style>
+</helmet>
+<div style="position: relative; width: 390px; height: 2500px; background: #f4f4f1; overflow: hidden; box-sizing: border-box;">
+
+<div style="padding: 15px 17px 40px 17px;">
+  <div style="display: flex; align-items: center; gap: 12px; padding: 7px 0 20px 0;"><div style="min-height: 52px; padding: 10px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: transparent; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; width: auto; box-sizing: border-box;">← 뒤로</div><h2 style="margin: 0; font-size: 25px; flex: 1;">설정</h2></div>
+  <div class="reveal" style="animation-delay: 0.05s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">거래 내역</h2>
+    <div style="font-size: 22px; color: #5b5b5b; margin-top: 15px; margin-top: 0; margin-bottom: 12px;">내가 언제 무엇을 얼마에 사고팔았는지, 손익이 얼마였는지 한눈에 봅니다.</div>
+    <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box; background: #111111; color: #ffffff; border-color: #111111;">📋 거래 내역 보기</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.14s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">글자 크기</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px;">
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box;">보통</div><div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box; border-color: #111111; background: #111111; color: #ffffff;">크게</div><div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box;">아주 크게</div>
+    </div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.23s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">거래소 연결</h2>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none;"><span style="color: #5b5b5b; font-size: 22px;">상태</span><span style="font-weight: 800; font-size: 26px; text-align: right;">연결됨 (wp_109…)</span></div>
+    <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box;">API 키 바꾸기 / 해제</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.27s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">제휴사 (영업 담당자)</h2>
+    <div style="font-size: 22px; color: #5b5b5b; margin-bottom: 12px;">고객을 모집하고 포지션을 관리하는 담당자라면 신청하세요. 관리자 승인 후 열려요.</div>
+    <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">제휴사 신청하기</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.32s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">거래 모드</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; background: #dcdcd7; padding: 6px; border-radius: 18px;"><div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">연습 (가짜 돈)</div><div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111;">실거래 (진짜 돈)</div></div>
+    <div style="font-size: 22px; color: #5b5b5b; margin-top: 15px;">실거래로 바꾸면 진짜 돈으로 주문돼요.</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.41s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">안전 한도</h2>
+    <div style="font-size: 22px; color: #5b5b5b; margin-top: 15px; margin-top: 0;">최대 배율</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 8px;">
+      <div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">10배</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">20배</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">50배</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; border-color: #111111; background: #111111; color: #ffffff;">100배</div>
+    </div>
+    <div style="font-size: 22px; color: #5b5b5b; margin-top: 15px;">1회 최대 금액 (USDT)</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 8px;">
+      <div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">500</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">1000</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">5000</div><div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; border-color: #111111; background: #111111; color: #ffffff;">제한 없음</div>
+    </div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.50s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">연결 상태</h2>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">시세</span><span style="font-weight: 800; font-size: 26px; text-align: right;">정상 ✅</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">모드</span><span style="font-weight: 800; font-size: 26px; text-align: right;">연습</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">환율(표시용)</span><span style="font-weight: 800; font-size: 26px; text-align: right;">1 USDT ≈ 1380원</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none;"><span style="color: #5b5b5b; font-size: 22px;">아이디</span><span style="font-weight: 800; font-size: 26px; text-align: right;">halmoni1</span></div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.6s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">계정</h2>
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">비밀번호 바꾸기</div>
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: transparent;">이용약관 보기</div>
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: transparent;">로그아웃</div>
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: transparent; color: #b91c1c;">회원 탈퇴</div>
+    </div>
+  </div>
+</div>
+</div>
+</x-dc>
+</body>
+</html>

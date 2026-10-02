@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #f4f4f1; color: #111111; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; font-size: 25px; line-height: 1.35; }
+    a { color: #111111; } a:hover { color: #5b5b5b; }
+
+    @keyframes ef-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    @keyframes ef-pulse { 0% { box-shadow: 0 0 0 0 rgba(214,40,40,0.55); } 70% { box-shadow: 0 0 0 16px rgba(214,40,40,0); } 100% { box-shadow: 0 0 0 0 rgba(214,40,40,0); } }
+    @keyframes ef-tick { 0%, 100% { color: #d62828; } 50% { color: #111111; } }
+    @keyframes ef-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+    @keyframes ef-fill { 0% { width: 0%; } 80% { width: 100%; } 100% { width: 100%; } }
+    @keyframes ef-bob { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+    @keyframes ef-pop { 0% { transform: scale(0.96); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    @keyframes ef-glow { 0%, 100% { background-color: #e5f5ea; } 50% { background-color: #d2efdb; } }
+    .reveal { animation: ef-reveal 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .pulse { animation: ef-pulse 1.8s ease-out infinite; }
+    .tick { animation: ef-tick 2.4s ease-in-out infinite; }
+    .draw { stroke-dasharray: 400; animation: ef-draw 1.6s ease-out 0.4s both; }
+    .fill { animation: ef-fill 2.2s ease-in-out 0.8s infinite; }
+    .bob { animation: ef-bob 2.4s ease-in-out infinite; }
+    .pop { animation: ef-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
+    .glow { animation: ef-glow 2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .reveal, .pulse, .tick, .draw, .fill, .bob, .pop, .glow { animation: none; } }
+  </style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1750px; background: #f4f4f1; overflow: hidden; box-sizing: border-box;">
+
+<div style="padding: 15px 17px 40px 17px;">
+  <div style="display: flex; align-items: center; gap: 12px; padding: 7px 0 20px 0;"><div style="min-height: 52px; padding: 10px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: transparent; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; width: auto; box-sizing: border-box;">← 뒤로</div><h2 style="margin: 0; font-size: 25px; flex: 1;">거래 내역</h2></div>
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; background: #dcdcd7; padding: 6px; border-radius: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 20px;">
+    <div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111; font-size: 21px;">최근 7일</div><div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12); font-size: 21px;">최근 30일</div><div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111; font-size: 21px;">최근 90일</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.05s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">최근 30일 요약</h2>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">가격 차이 손익</span><span style="font-weight: 800; font-size: 26px; text-align: right;">-7.11 USDT</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">수수료 합계</span><span style="font-weight: 800; font-size: 26px; text-align: right;">-1.2953 USDT</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">실제 남은 돈 (순손익)</span><span style="font-weight: 800; font-size: 26px; text-align: right; color: #1d4ed8;">-8.41 USDT<br><span style="font-size: 20px; font-weight: 600;">≈ -11,600원</span></span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none;"><span style="color: #5b5b5b; font-size: 22px;">정리한 횟수</span><span style="font-weight: 800; font-size: 26px; text-align: right;">3번</span></div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.17s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">2026년 9월 7일 (월)</h2>
+    
+    <div class="reveal" style="animation-delay: 0.30s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">비트코인 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fdeaea; color: #d62828;">오른다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">직접 정리</div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 07:32 · 79,379 달러 · 0.002 BTC · 10배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-weight: 900; font-size: 26px; color: #1d4ed8;">-0.20 USDT</div><div style="font-size: 20px; color: #1d4ed8;">-280원</div><div style="font-size: 20px; color: #5b5b5b;">수수료 뺀 순손익 ▲</div></div>
+    </div>
+    <div style="background: #f4f4f1; border-radius: 12px; padding: 12px 20px; margin: 0 0 12px 0; font-size: 22px;">
+      <div style="display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b;">가격 차이 손익</span><span style="font-weight: 800;">-0.01 USDT</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b;">진입 수수료</span><span style="font-weight: 800;">-0.0953 USDT</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b;">정리 수수료</span><span style="font-weight: 800;">-0.0953 USDT</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 7px 0;"><span style="color: #5b5b5b;">순손익</span><span style="font-weight: 800; color: #1d4ed8;">-0.20 USDT</span></div>
+    </div>
+    
+    <div class="reveal" style="animation-delay: 0.40s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">비트코인 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fdeaea; color: #d62828;">오른다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">진입</div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 07:30 · 79,394 달러 · 0.002 BTC · 10배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-size: 20px; color: #5b5b5b;">수수료 0.0953</div></div>
+    </div>
+    
+    <div class="reveal" style="animation-delay: 0.50s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#627EEA"></circle><path fill="#ffffff" fill-opacity=".6" d="M16.5 4v8.9l7.5 3.3z"></path><path fill="#ffffff" d="M16.5 4L9 16.2l7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M16.5 22v6L24 17.6z"></path><path fill="#ffffff" d="M16.5 28v-6L9 17.6z"></path><path fill="#ffffff" fill-opacity=".2" d="M16.5 20.6l7.5-4.4-7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M9 16.2l7.5 4.4v-7.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">이더리움 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fdeaea; color: #d62828;">오른다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">익절 (자동 정리)</div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 07:12 · 2,512 달러 · 0.08 ETH · 5배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-weight: 900; font-size: 26px; color: #d62828;">+7.96 USDT</div><div style="font-size: 20px; color: #d62828;">+11,000원</div><div style="font-size: 20px; color: #5b5b5b;">수수료 뺀 순손익 ▼</div></div>
+    </div>
+    
+    <div class="reveal" style="animation-delay: 0.70s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#627EEA"></circle><path fill="#ffffff" fill-opacity=".6" d="M16.5 4v8.9l7.5 3.3z"></path><path fill="#ffffff" d="M16.5 4L9 16.2l7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M16.5 22v6L24 17.6z"></path><path fill="#ffffff" d="M16.5 28v-6L9 17.6z"></path><path fill="#ffffff" fill-opacity=".2" d="M16.5 20.6l7.5-4.4-7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M9 16.2l7.5 4.4v-7.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">이더리움 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fdeaea; color: #d62828;">오른다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">진입</div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 06:38 · 2,489 달러 · 0.08 ETH · 5배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-size: 20px; color: #5b5b5b;">수수료 0.1195</div></div>
+    </div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.29s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">2026년 9월 6일 (일)</h2>
+    
+    <div class="reveal" style="animation-delay: 0.60s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">비트코인 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #e6edfd; color: #1d4ed8;">내린다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">강제정리 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fff4e0; color: #b45309; margin-left: 6px;">주의</span></div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 11:05 · 80,120 달러 · 0.005 BTC · 50배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-weight: 900; font-size: 26px; color: #1d4ed8;">-15.68 USDT</div><div style="font-size: 20px; color: #1d4ed8;">-21,600원</div><div style="font-size: 20px; color: #5b5b5b;">수수료 뺀 순손익 ▼</div></div>
+    </div>
+    
+    <div class="reveal" style="animation-delay: 0.80s; display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none; align-items: center; gap: 12px;">
+      <svg width="30" height="30" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 900;">비트코인 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #e6edfd; color: #1d4ed8;">내린다</span></div>
+        <div style="font-weight: 800; font-size: 22px;">진입</div>
+        <div style="font-size: 20px; color: #5b5b5b;">오후 09:41 · 79,650 달러 · 0.005 BTC · 50배</div>
+      </div>
+      <div style="text-align: right; flex: none;"><div style="font-size: 20px; color: #5b5b5b;">수수료 0.0953</div></div>
+    </div>
+  </div>
+</div>
+</div>
+</x-dc>
+</body>
+</html>

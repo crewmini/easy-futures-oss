@@ -1,0 +1,74 @@
+# easy-futures API — Cloudflare Workers + D1 + Durable Object
+name = "easy-futures"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+
+# 예전 workers.dev 주소는 살려 두고(아래 코드에서 새 주소로 안내), 정식 주소는 자체 도메인
+workers_dev = true
+
+# 자체 도메인 (Cloudflare 가 DNS·인증서를 자동 처리)
+routes = [
+  { pattern = "easyfutures.app", custom_domain = true },
+  { pattern = "www.easyfutures.app", custom_domain = true },
+]
+
+[vars]
+USDT_KRW_DEFAULT = "1380"
+PAPER_START_BALANCE = "1000"
+# 정식 도메인. workers.dev·www 로 오면 이 주소로 보낸다. 텔레그램 웹훅 주소의 기본값이기도 하다 (BOT_WEBHOOK_BASE 로 따로 지정 가능)
+CANONICAL_HOST = "easyfutures.app"
+
+# ── 다른 Cloudflare 계정에서 올릴 때 (개발 서버) ──────────────────────────────
+# 1) 위 CANONICAL_HOST 를 "" 로 비우거나 자기 도메인으로 바꾼다 (비우면 <이름>.workers.dev 그대로 동작)
+# 2) 아래 routes 블록을 지우거나 자기 도메인으로 바꾼다 (남의 도메인은 배포가 거부된다)
+# 3) `npx wrangler d1 create easy-futures` 로 D1 을 만들고 database_id 를 바꾼다
+# 4) 시크릿: MASTER_KEY(필수, openssl rand -base64 32) · ADMIN_LOGIN_IDS · 텔레그램은 반드시 자기 봇 토큰(운영 토큰 공유 금지 — 웹훅이 한 곳에만 걸린다)
+# 5) 웹 빌드 시 web/.env.production 의 VITE_CANONICAL_HOST 도 비운다
+
+# 비밀값은 `wrangler secret put MASTER_KEY` / `wrangler secret put INVITE_CODE` 로 등록 (로컬은 .dev.vars)
+
+[[d1_databases]]
+binding = "DB"
+database_name = "easy-futures"
+# `wrangler d1 create easy-futures` 실행 후 출력된 database_id로 바꿔 주세요 (로컬 wrangler dev는 이 값과 무관)
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[durable_objects]
+bindings = [{ name = "PAPER", class_name = "PaperEngine" }, { name = "AUTO", class_name = "AutoTrader" }, { name = "BOT", class_name = "BottomWatcher" }, { name = "MASTER", class_name = "MasterWatcher" }, { name = "COPY", class_name = "CopyTrader" }, { name = "RATE", class_name = "RateGate" }]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PaperEngine"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["AutoTrader"]
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["BottomWatcher"]
+
+[[migrations]]
+tag = "v4"
+new_sqlite_classes = ["MasterWatcher", "CopyTrader"]
+
+[[migrations]]
+tag = "v5"
+new_sqlite_classes = ["RateGate"]
+
+# 저점 봇 감시 루프 킥 (DO 알람이 죽어도 1분 안에 되살아남)
+[triggers]
+crons = ["* * * * *"]
+
+# 웹(PWA) 정적 파일을 같은 도메인에서 서빙. /api/* 는 항상 Worker가 먼저 처리.
+[assets]
+directory = "../web/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# 운영 로그 (대시보드에서 조회 가능). 카피 트레이딩은 이벤트 1건의 흐름(감시→팬아웃→실행)을 끝까지 추적해야 해서 샘플링하지 않는다 (2026-09-18 신뢰성 감사)
+[observability]
+enabled = true
+head_sampling_rate = 1

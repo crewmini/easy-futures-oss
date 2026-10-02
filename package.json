@@ -1,0 +1,16 @@
+{
+  "name": "easy-futures",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["shared", "server", "web"],
+  "scripts": {
+    "dev": "npm run dev --workspace=server & npm run dev --workspace=web & wait",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:web": "npm run dev --workspace=web",
+    "build": "npm run build --workspace=shared && npm run build --workspace=web && npm run build --workspace=server",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": { "node": ">=20" }
+}

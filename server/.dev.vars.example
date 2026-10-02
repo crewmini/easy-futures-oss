@@ -1,0 +1,7 @@
+# 로컬 개발용 비밀값 (.dev.vars 로 복사해서 사용, .dev.vars 는 git에 올리지 않음)
+# 32바이트 base64: openssl rand -base64 32
+MASTER_KEY=
+# 가입 초대 코드
+INVITE_CODE=dev1234
+# 관리자 아이디(쉼표 구분) — 이 아이디로 가입하면 설정 → 관리자 화면(신분증·자동매매 승인, 저점 봇)이 열린다
+ADMIN_LOGIN_IDS=admin1

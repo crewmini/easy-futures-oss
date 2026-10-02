@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # npm 의 선택적 의존성 버그(npm/cli#4828)로 리눅스 네이티브 바인딩이 빠지는 일이 간헐적으로 있어 확인 후 보충
+      - name: Ensure rolldown native binding
+        run: test -d node_modules/@rolldown/binding-linux-x64-gnu || npm install --no-save "@rolldown/binding-linux-x64-gnu@$(node -p "require('rolldown/package.json').version")"
+      - run: npm run typecheck
+      - run: npm test

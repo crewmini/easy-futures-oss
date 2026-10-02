@@ -1,0 +1,88 @@
+{
+ "artboards": [
+  {
+   "file": "Main.dc.html",
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 2150,
+   "title": "홈"
+  },
+  {
+   "file": "WizardAmount.dc.html",
+   "x": 480,
+   "y": 0,
+   "w": 390,
+   "h": 1200,
+   "title": "주문 · 투자 금액"
+  },
+  {
+   "file": "WizardConfirm.dc.html",
+   "x": 960,
+   "y": 0,
+   "w": 390,
+   "h": 1150,
+   "title": "주문 · 확인"
+  },
+  {
+   "file": "Settings.dc.html",
+   "x": 1440,
+   "y": 0,
+   "w": 390,
+   "h": 2500,
+   "title": "설정"
+  },
+  {
+   "file": "History.dc.html",
+   "x": 1920,
+   "y": 0,
+   "w": 390,
+   "h": 1750,
+   "title": "거래 내역"
+  },
+  {
+   "file": "Partner.dc.html",
+   "x": 2400,
+   "y": 0,
+   "w": 390,
+   "h": 1900,
+   "title": "제휴사 페이지"
+  },
+  {
+   "file": "PartnerApply.dc.html",
+   "x": 2880,
+   "y": 0,
+   "w": 390,
+   "h": 1000,
+   "title": "제휴사 신청"
+  },
+  {
+   "file": "Admin.dc.html",
+   "x": 3360,
+   "y": 0,
+   "w": 390,
+   "h": 1900,
+   "title": "관리자"
+  },
+  {
+   "file": "ShareCard.dc.html",
+   "x": 3840,
+   "y": 0,
+   "w": 640,
+   "h": 520,
+   "title": "링크 미리보기 카드"
+  }
+ ],
+ "annotations": [
+  {
+   "id": "guide",
+   "x": 0,
+   "y": -170,
+   "w": 480,
+   "text": "Easy futures — 어르신용 화면\n정식 주소: https://easyfutures.app (로고: EF 모노그램 + 상승선)\n실제 앱(web/src)의 값 그대로: 글자 20px 기본(보통), 버튼 높이 64px, 모서리 18px, 상승 빨강 #d62828 / 하락 파랑 #1d4ed8.\n고친 내용은 web/src/components 와 styles.css 에 반영하면 됩니다."
+  }
+ ],
+ "launch": {
+  "view": "canvas"
+ }
+}

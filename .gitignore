@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+*.local
+server/data/*.json
+.DS_Store
+.wrangler/
+.dev.vars
+design/easy-futures-screens.html
+design/_*.txt
+design/og-preview.png

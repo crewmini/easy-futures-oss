@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #f4f4f1; color: #111111; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; font-size: 25px; line-height: 1.35; }
+    a { color: #111111; } a:hover { color: #5b5b5b; }
+
+    @keyframes ef-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    @keyframes ef-pulse { 0% { box-shadow: 0 0 0 0 rgba(214,40,40,0.55); } 70% { box-shadow: 0 0 0 16px rgba(214,40,40,0); } 100% { box-shadow: 0 0 0 0 rgba(214,40,40,0); } }
+    @keyframes ef-tick { 0%, 100% { color: #d62828; } 50% { color: #111111; } }
+    @keyframes ef-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+    @keyframes ef-fill { 0% { width: 0%; } 80% { width: 100%; } 100% { width: 100%; } }
+    @keyframes ef-bob { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+    @keyframes ef-pop { 0% { transform: scale(0.96); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    @keyframes ef-glow { 0%, 100% { background-color: #e5f5ea; } 50% { background-color: #d2efdb; } }
+    .reveal { animation: ef-reveal 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .pulse { animation: ef-pulse 1.8s ease-out infinite; }
+    .tick { animation: ef-tick 2.4s ease-in-out infinite; }
+    .draw { stroke-dasharray: 400; animation: ef-draw 1.6s ease-out 0.4s both; }
+    .fill { animation: ef-fill 2.2s ease-in-out 0.8s infinite; }
+    .bob { animation: ef-bob 2.4s ease-in-out infinite; }
+    .pop { animation: ef-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
+    .glow { animation: ef-glow 2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .reveal, .pulse, .tick, .draw, .fill, .bob, .pop, .glow { animation: none; } }
+  </style>
+</helmet>
+<div style="position: relative; width: 390px; height: 2150px; background: #f4f4f1; overflow: hidden; box-sizing: border-box;">
+
+<div style="padding: 15px 17px 0 17px;">
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 5px 0 15px 0;">
+    <h1 style="font-size: 25px; margin: 0; font-weight: 800; white-space: nowrap; display: flex; align-items: center; gap: 10px;"><svg width="30" height="30" viewBox="0 0 512 512" style="flex: none; border-radius: 7px;">
+  <rect width="512" height="512" rx="110" fill="#111111"/>
+  <path d="M84 352 L176 262 L246 318 L428 150" fill="none" stroke="#ff5a5a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M356 150 H428 V222" fill="none" stroke="#ff5a5a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="452" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="118" font-weight="900" fill="#ffffff" letter-spacing="-4">EF</text>
+</svg> Easy futures</h1>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 19px; padding: 6px 12px; border-radius: 999px; font-weight: 700; white-space: nowrap; background: #e5f5ea; color: #15803d;">연습 모드</span>
+      <div style="min-height: 48px; padding: 10px 15px; border-radius: 18px; border: 2px solid #dcdcd7; background: transparent; font-weight: 800; font-size: 22px; display: flex; align-items: center; white-space: nowrap;">⚙️ 설정</div>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; background: #dcdcd7; padding: 6px; border-radius: 18px;">
+    <div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12);"><svg width="28" height="28" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg> 비트코인</div>
+    <div style="min-height: 56px; border: none; background: transparent; border-radius: 18px; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #111111;"><svg width="28" height="28" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#627EEA"></circle><path fill="#ffffff" fill-opacity=".6" d="M16.5 4v8.9l7.5 3.3z"></path><path fill="#ffffff" d="M16.5 4L9 16.2l7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M16.5 22v6L24 17.6z"></path><path fill="#ffffff" d="M16.5 28v-6L9 17.6z"></path><path fill="#ffffff" fill-opacity=".2" d="M16.5 20.6l7.5-4.4-7.5-3.3z"></path><path fill="#ffffff" fill-opacity=".6" d="M9 16.2l7.5 4.4v-7.7z"></path></svg> 이더리움</div>
+  </div>
+  <div style="height: 17px;"></div>
+  <div class="reveal" style="animation-delay: 0.05s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700; display: flex; align-items: center; gap: 10px;"><svg width="22" height="22" viewBox="0 0 32 32" style="flex: none;"><circle cx="16" cy="16" r="16" fill="#F7931A"></circle><path fill="#ffffff" d="M22.6 14.1c.3-2.1-1.3-3.2-3.5-4l.7-2.8-1.7-.4-.7 2.7c-.5-.1-.9-.2-1.4-.3l.7-2.8-1.7-.4-.7 2.8-1.1-.3-2.4-.6-.5 1.8s1.3.3 1.3.3c.7.2.8.6.8 1l-.8 3.2v.2l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.3-.3-1.3-.3l-.9 2 2.2.6 1.2.3-.7 2.8 1.7.4.7-2.8c.5.1.9.2 1.4.4l-.7 2.8 1.7.4.7-2.8c2.9.6 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 2-1 2.2-2.5zm-4 5.4c-.5 2.1-4.1 1-5.2.7l1-3.8c1.1.3 4.7.8 4.2 3.1zm.5-5.4c-.5 1.9-3.4.9-4.4.7l.8-3.4c1 .2 4 .7 3.6 2.7z"></path></svg> 비트코인 지금 가격</h2>
+    <div style="font-size: 60px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; color: #d62828;"><span class="tick">79,340</span> <span style="font-size: 20px; font-weight: 700; color: #5b5b5b;">달러</span></div>
+    <div style="margin-top: 8px;"><span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fdeaea; color: #d62828;">▲ 어제보다 +1.2% 올랐어요</span></div>
+    <svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width: 100%; height: 87px; display: block;"><polyline class="draw" points="0,22 8,20 16,24 24,18 32,19 40,14 48,16 56,10 64,12 72,8 80,11 88,6 100,4" fill="none" stroke="#d62828" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg>
+    <div style="font-size: 20px; color: #5b5b5b;">최근 24시간 흐름</div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.17s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">내 상태</h2>
+    <div style="font-size: 37px; font-weight: 800; margin-bottom: 8px; line-height: 1.25;">비트코인이 <span style="color: #1d4ed8;">내린다</span>에 걸었어요 <span style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #fff4e0; color: #b45309; margin-left: 6px;">3배</span></div>
+    <div style="font-size: 50px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; color: #d62828;">+0.05 <span style="font-size: 20px; font-weight: 700;">USDT</span></div>
+    <div style="font-weight: 800; color: #d62828;">지금 팔면 이익 69원 (+0.0%)</div>
+    <div style="position: relative; height: 375px; margin: 15px 0 5px 0;">
+      <div style="position: absolute; left: 155px; top: 12px; bottom: 12px; width: 4px; background: #dcdcd7; border-radius: 2px;"></div>
+      <div style="position: absolute; left: 155px; width: 4px; top: 59%; height: 13%; background: #d62828; opacity: 0.35;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 4%; height: 0; display: flex; align-items: center;">
+      <span style="width: 150px; text-align: right; padding-right: 12px; font-size: 20px; font-weight: 800; color: #5b5b5b; white-space: nowrap; box-sizing: border-box;">강제정리가</span>
+      <span style="width: 25px; height: 25px; border-radius: 50%; border: 3px solid #ffffff; margin-left: -10px; flex: none; background: #b45309;"></span>
+      <span style="margin-left: 12px; font-weight: 800; font-size: 24px; white-space: nowrap; color: #b45309;">105,390</span>
+    </div>
+    <div style="position: absolute; left: 0; right: 0; top: 46%; height: 0; display: flex; align-items: center;">
+      <span style="width: 150px; text-align: right; padding-right: 12px; font-size: 20px; font-weight: 800; color: #5b5b5b; white-space: nowrap; box-sizing: border-box;">손절가</span>
+      <span style="width: 25px; height: 25px; border-radius: 50%; border: 3px solid #ffffff; margin-left: -10px; flex: none; background: #1d4ed8;"></span>
+      <span style="margin-left: 12px; font-weight: 800; font-size: 24px; white-space: nowrap; color: #1d4ed8;">83,308</span>
+    </div>
+    <div style="position: absolute; left: 0; right: 0; top: 59%; height: 0; display: flex; align-items: center;">
+      <span style="width: 150px; text-align: right; padding-right: 12px; font-size: 20px; font-weight: 800; color: #5b5b5b; white-space: nowrap; box-sizing: border-box;">산 가격(평단)</span>
+      <span style="width: 25px; height: 25px; border-radius: 50%; border: 3px solid #ffffff; margin-left: -10px; flex: none; background: #111111;"></span>
+      <span style="margin-left: 12px; font-weight: 800; font-size: 24px; white-space: nowrap; color: #111111;">79,340</span>
+    </div>
+    <div style="position: absolute; left: 0; right: 0; top: 72%; height: 0; display: flex; align-items: center;">
+      <span style="width: 150px; text-align: right; padding-right: 12px; font-size: 20px; font-weight: 800; color: #111111; white-space: nowrap; box-sizing: border-box;">지금 가격</span>
+      <span style="width: 25px; height: 25px; border-radius: 50%; border: 3px solid #ffffff; margin-left: -10px; flex: none; background: #d62828; transform: scale(1.35);" class="pulse"></span>
+      <span style="margin-left: 12px; font-weight: 800; font-size: 28px; white-space: nowrap; color: #d62828;">79,340</span>
+    </div>
+    <div style="position: absolute; left: 0; right: 0; top: 85%; height: 0; display: flex; align-items: center;">
+      <span style="width: 150px; text-align: right; padding-right: 12px; font-size: 20px; font-weight: 800; color: #5b5b5b; white-space: nowrap; box-sizing: border-box;">익절가</span>
+      <span style="width: 25px; height: 25px; border-radius: 50%; border: 3px solid #ffffff; margin-left: -10px; flex: none; background: #d62828;"></span>
+      <span style="margin-left: 12px; font-weight: 800; font-size: 24px; white-space: nowrap; color: #d62828;">71,407</span>
+    </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">걸어둔 돈</span><span style="font-weight: 800; font-size: 26px; text-align: right;">185.13 USDT</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">물량</span><span style="font-weight: 800; font-size: 26px; text-align: right;">0.007 BTC <span style="font-size: 20px; color: #5b5b5b;">(7계약)</span></span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">손절가</span><span style="font-weight: 800; font-size: 26px; text-align: right; color: #1d4ed8;">83,308</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">익절가</span><span style="font-weight: 800; font-size: 26px; text-align: right; color: #d62828;">71,407</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none;"><span style="color: #5b5b5b; font-size: 22px;">강제정리가</span><span style="font-weight: 800; font-size: 26px; text-align: right; color: #b45309;">105,390</span></div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; margin-top: 17px;">
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box;">손절가 바꾸기</div>
+      <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box;">익절가 바꾸기</div>
+    </div>
+    <div style="margin-top: 15px;"><div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box; color: #b91c1c; border-color: #b91c1c;">전부 정리하기</div></div>
+  </div>
+  <div class="reveal" style="animation-delay: 0.29s; background: #ffffff; border-radius: 18px; padding: 22px; margin-bottom: 20px; border: 1px solid #dcdcd7; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 24px; margin: 0 0 12px 0; color: #5b5b5b; font-weight: 700;">내 지갑 <span class="glow" style="display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 20px; font-weight: 800; background: #e5f5ea; color: #15803d;">연습용 가짜 돈</span></h2>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">쓸 수 있는 돈</span><span style="font-weight: 800; font-size: 26px; text-align: right;">814.6 USDT<br><span style="font-size: 20px; color: #5b5b5b; font-weight: 600;">≈ 1,124,000원</span></span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">걸어둔 돈</span><span style="font-weight: 800; font-size: 26px; text-align: right;">185.13 USDT</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed #dcdcd7;"><span style="color: #5b5b5b; font-size: 22px;">지금 팔면 손익</span><span style="font-weight: 800; font-size: 26px; text-align: right; color: #d62828;">+0.05 USDT</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: none;"><span style="color: #5b5b5b; font-size: 22px;">전체 자산</span><span style="font-weight: 800; font-size: 26px; text-align: right;">999.78 USDT</span></div>
+  </div>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 15px 17px 20px 17px; background: linear-gradient(transparent, #f4f4f1 30%);">
+  <div style="min-height: 64px; padding: 15px 22px; border-radius: 18px; border: 2px solid #dcdcd7; background: #ffffff; color: #111111; font-weight: 800; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; box-sizing: border-box; background: #111111; color: #ffffff; border-color: #111111; min-height: 105px; font-size: 30px;">＋ 새로 걸기</div>
+</div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#111111"/>
+  <path d="M84 352 L176 262 L246 318 L428 150" fill="none" stroke="#ff5a5a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M356 150 H428 V222" fill="none" stroke="#ff5a5a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="452" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="118" font-weight="900" fill="#ffffff" letter-spacing="-4">EF</text>
+</svg>
